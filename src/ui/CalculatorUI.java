@@ -5,7 +5,8 @@
 *Date of Update:    05/10/2017
 *Version:           1.0.0
 *
-*Purpose:           null
+*Purpose:           User interface.
+*					Really what it says on the tin.
 *					
 * 
 *Update Log			v1.0.0
@@ -50,7 +51,7 @@ public class CalculatorUI extends JFrame
 									"a<sub>P4</sub>",
 									"a<sub>P5</sub>"};
 	private static final Dimension INPUT_DIMENSION =  new Dimension(70, 20);
-	private static final String WINDOW_TITLE = "DePriester Calculator";
+	public static final String WINDOW_TITLE = "DePriester Calculator";
 	public static final String COMPOUND_SELECT = "input/compound";
 	
 	

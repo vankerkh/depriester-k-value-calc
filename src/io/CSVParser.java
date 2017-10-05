@@ -5,9 +5,14 @@
 *Date of Update:    05/10/2017
 *Version:           1.0.0
 *
-*Purpose:           null
-*					
+*Purpose:           Parse a CSV file formated as follows:
+*					[CompoundName, IconPath, aT1, aT2, aT3, aT4, aT5, aT6, aP1, aP2, aP3, aP4, aP5]
+*					CompoundName is loaded as a string. HTML is allowed for formating
+*					IconPath is the full path + filename of the associated icon. Can be PNG or JPG.
+*					Note that IconPath must include file extension (ie img/methane.png)
+*					aT1 - aP5 are coefficients and are loaded as double precision floating points
 * 
+*
 *Update Log			v1.0.0
 *						- null
 */
@@ -39,7 +44,8 @@ public class CSVParser
 	//generic constructor
 	public CSVParser()
 	{
-		
+		coeffMap = null;
+		icons = null;
 	}
 	
 	
@@ -137,11 +143,11 @@ public class CSVParser
 			}
 			else if (vals.length > (TOTAL_COEFFS+2))
 			{
-				throw new CSVFormatException("ERROR line " + line + " -- Too many values found");
+				throw new CSVFormatException("CSV PARSE ERROR line " + line + " -- Too many values found");
 			}
 			else
 			{
-				throw new CSVFormatException("ERROR line " + line + " -- Too few values found");
+				throw new CSVFormatException("CSV PARSE ERROR line " + line + " -- Too few values found");
 			}
 		}
 	}

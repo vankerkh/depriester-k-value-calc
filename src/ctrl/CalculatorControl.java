@@ -3,12 +3,19 @@
 *Project:          	AVA Smart Home
 *Author:            Jason Van Kerkhoven
 *Date of Update:    05/10/2017
-*Version:           1.0.0
+*Version:           1.1.0
 *
-*Purpose:           null
+*Purpose:           The main controller for the K value program.
+*					Performs all computations, and handles all inputs/changes in GUI.
 *					
 * 
-*Update Log			v1.0.0
+*Update Log			v1.1.0
+*						- added default CSV path as global constant
+*						- added error handling for file not found exception
+*						- added error handling for CSV bad format exception
+*						- added option to call from terminal and pass path of CSV file instead of
+*						  of using default path
+*					v1.0.0
 *						- null
 */
 package ctrl;
@@ -23,6 +30,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 //import packages
 import io.CSVFormatException;
@@ -33,6 +41,10 @@ import ui.CalculatorUI;
 
 public class CalculatorControl implements ActionListener
 {
+	//declaring static constants
+	public static final String DEFAULT_CSV_PATH = "dat/DePriester-Equation-K-Calculator.csv";
+	private static final String VERSION = "v1.1.0";
+	
 	//declaring local instance variables
 	private CalculatorUI ui;
 	private TreeMap<String, double[]> coeffs;
@@ -50,7 +62,7 @@ public class CalculatorControl implements ActionListener
 		icons = parser.getIcons();
 		
 		//setup UI
-		ui = new CalculatorUI("v1.0.0",this, coeffs.keySet());
+		ui = new CalculatorUI(VERSION,this, coeffs.keySet());
 		ui.setVisible(true);
 	}
 
@@ -103,9 +115,36 @@ public class CalculatorControl implements ActionListener
 	
 	
 	
-	public static void main(String[] args) throws FileNotFoundException, CSVFormatException
+	public static void main(String[] args)
 	{
-		CalculatorControl cc = new CalculatorControl("dat/DePriester-Equation-K-Calculator.csv");
+		//determine run configuration
+		boolean dialog = (args.length < 1);
+		String path;
+		if (dialog)
+		{
+			path = CalculatorControl.DEFAULT_CSV_PATH;
+		}
+		else
+		{
+			path = args[0];
+		}
+		
+		//create instance and run
+		try 
+		{
+			CalculatorControl cc = new CalculatorControl(path);
+		} 
+		catch (FileNotFoundException|CSVFormatException e) 
+		{
+			if(dialog)
+			{
+				JOptionPane.showMessageDialog(null, e.getMessage(), CalculatorUI.WINDOW_TITLE, JOptionPane.ERROR_MESSAGE);
+			}
+			else
+			{
+				System.out.println(e.getMessage());
+			}
+		}
 	}
 	
 }
