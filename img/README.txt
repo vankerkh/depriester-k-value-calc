@@ -1,0 +1,1 @@
+Please note icons should be less than 300x275
