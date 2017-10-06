@@ -1,12 +1,12 @@
 /**
 *Class:             CSVParser.java
-*Project:          	AVA Smart Home
+*Project:          	DePriester K Value Calculator
 *Author:            Jason Van Kerkhoven
 *Date of Update:    05/10/2017
 *Version:           1.0.0
 *
 *Purpose:           Parse a CSV file formated as follows:
-*					[CompoundName, IconPath, aT1, aT2, aT3, aT4, aT5, aT6, aP1, aP2, aP3, aP4, aP5]
+*					{CompoundName, IconPath, aT1, aT2, aT3, aT4, aT5, aT6, aP1, aP2, aP3, aP4, aP5}
 *					CompoundName is loaded as a string. HTML is allowed for formating
 *					IconPath is the full path + filename of the associated icon. Can be PNG or JPG.
 *					Note that IconPath must include file extension (ie img/methane.png)

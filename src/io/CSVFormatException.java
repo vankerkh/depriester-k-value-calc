@@ -1,6 +1,6 @@
 /**
 *Class:             CSVFormatException.java
-*Project:          	AVA Smart Home
+*Project:          	DePriester K Value Calculator
 *Author:            Jason Van Kerkhoven
 *Date of Update:    05/10/2017
 *Version:           1.0.0

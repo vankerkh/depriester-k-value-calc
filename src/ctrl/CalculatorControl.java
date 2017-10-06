@@ -1,8 +1,8 @@
 /**
 *Class:             CalculatorContrl.java
-*Project:          	AVA Smart Home
+*Project:          	DePriester K Value Calculator
 *Author:            Jason Van Kerkhoven
-*Date of Update:    05/10/2017
+*Date of Update:    06/10/2017
 *Version:           1.1.0
 *
 *Purpose:           The main controller for the K value program.
@@ -42,7 +42,6 @@ import ui.CalculatorUI;
 public class CalculatorControl implements ActionListener
 {
 	//declaring static constants
-	public static final String DEFAULT_CSV_PATH = "dat/DePriester-Equation-K-Calculator.csv";
 	private static final String VERSION = "v1.1.0";
 	
 	//declaring local instance variables
