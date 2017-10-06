@@ -42,6 +42,7 @@ import ui.CalculatorUI;
 public class CalculatorControl implements ActionListener
 {
 	//declaring static constants
+	public static final String DEFAULT_CSV_PATH = "compound-data.csv";
 	private static final String VERSION = "v1.1.0";
 	
 	//declaring local instance variables
