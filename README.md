@@ -1,12 +1,10 @@
 # Purpose
----
 
 This calculator essentially acts as a DePrieseter chart, calculating the vapor-liquid equilibrium ratio *(ie K-Value)* for a variety of compounds at a particular temperature and pressure.
 
 
 
 # How to Use
----
 
 The pre-built executable `.jar` can be run by double clicking on the icon from a file explorer. Alternatively, the `.jar` can be called from terminal using the standard command: `java -jar kcalc.jar`.
 
@@ -20,7 +18,6 @@ To run the program using compound information from a `.csv` file that is not the
 
 
 # Adding New Compounds
----
 
 Adding new compounds can be trivially done by editing the `.csv` file. Each compound is located on a new line (row) in the `.csv`. There are a total of 13 entries per compound in the `.csv`. They are as follows:
 
